@@ -44,3 +44,8 @@ insert into carrinho(idusuario, idproduto)values
 select nomeProduto as Produto, nomeCategoria as Categoria from produtos
 inner join categorias on categorias.id_categoria = produtos.fk_categoria
 inner join carrinho on idproduto = produtos.idprodutos where idusuario = 3
+
+select nomeProduto as Produto, nomeCategoria as Categoria from produtos
+inner join categorias on categorias.id_categoria = produtos.fk_categoria
+inner join carrinho on idproduto = produtos.idprodutos 
+inner join usuario on id_usuario = carrinho.idusuario where nomeCompleto = 'Júlia Bonavides'
