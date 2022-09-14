@@ -12,7 +12,7 @@ create table categorias (
 id_categoria int primary key auto_increment,
 nomeCategoria varchar(50)
 );
-insert into categorias(nome)values('frutas'), ('refrigerantes'), ('leite'), ('pão');
+insert into categorias(nomeCategoria)values('frutas'), ('refrigerantes'), ('leite'), ('pão');
 
 create table produtos (
 idprodutos int primary_key auto_increment ,
@@ -23,7 +23,7 @@ fk_categoria int,
 foreing key (fk_categoria) references categorias(id_categoria),
 );
 
-insert into produtos(nome, preço, descricao, fk_categoria)values
+insert into produtos(nomeProduto, preço, descricao, fk_categoria)values
 ('laranja', 3, 'colhida madura', 1),
 ('morango', 5, 'ainda não maduros', 1),
 ('guarana', 2.4, 'latinha 350ml', 2),
