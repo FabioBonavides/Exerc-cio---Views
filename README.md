@@ -1,4 +1,4 @@
-select * from produtos
+select nomeProduto as Produto, nomeCategoria as Categoria from produtos
 inner join categorias on categorias.id_categoria = produtos.fk_categoria
 inner join carrinho on idproduto = produtos.idprodutos where idusuario = 3
 
