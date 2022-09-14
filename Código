@@ -1,0 +1,46 @@
+create table usuario (
+id_usuario int primary key auto_increment,
+nomeCompleto varchar(250),
+email varchar(100)
+);
+insert into usuario(nomeCompleto, email)values
+('Fábio Bonavides', 'bonavides@gmail.com'), 
+('Marcelo Castro', 'marceloc@hotmail.com'),
+('Júlia Bonavides', 'juliabona@gmail.com');
+
+create table categorias (
+id_categoria int primary key auto_increment,
+nome varchar(50)
+);
+insert into categorias(nome)values('frutas'), ('refrigerantes'), ('leite'), ('pão');
+
+create table produtos (
+idprodutos int primary_key auto_increment ,
+nome varchar(50) not null,
+preço float,
+descricao varchar(200),
+fk_categoria int,
+foreing key (fk_categoria) references categorias(id_categoria),
+);
+
+insert into produtos(nome, preço, descricao, fk_categoria)values
+('laranja', 3, 'colhida madura', 1),
+('morango', 5, 'ainda não maduros', 1),
+('guarana', 2.4, 'latinha 350ml', 2),
+('maranguape', 4.99, 'caixa 1L', 3),
+('carioquinha', 0.84, 'a unidade', 4),
+('coca cola', 4.89, 'garrafa pet', 2),
+('piracanjuba', 5.99, 'caixa 1L - 0 LCT', 3),
+('sovado', 0.76, 'pão massa fina', 4);
+
+create table carrinho (
+idusuario int,
+idproduto int,
+);
+alter table carrinho add constraint pk_usuario_produto primary key (idusuario, idproduto)
+insert into carrinho(idusuario, idproduto)values
+(1, 1), (1, 2), (1, 4), (2, 1), (2, 4), (2, 3), (3, 2), (3, 4), (3, 3), (3, 7), (3, 5);
+
+select * from produtos
+inner join categorias on categorias.id_categoria = produtos.fk_categoria
+inner join carrinho on idproduto = produtos.idprodutos where idusuario = 3
