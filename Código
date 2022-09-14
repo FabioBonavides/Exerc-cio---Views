@@ -10,7 +10,7 @@ insert into usuario(nomeCompleto, email)values
 
 create table categorias (
 id_categoria int primary key auto_increment,
-nome varchar(50)
+nomeCategoria varchar(50)
 );
 insert into categorias(nome)values('frutas'), ('refrigerantes'), ('leite'), ('pão');
 
@@ -41,6 +41,6 @@ alter table carrinho add constraint pk_usuario_produto primary key (idusuario, i
 insert into carrinho(idusuario, idproduto)values
 (1, 1), (1, 2), (1, 4), (2, 1), (2, 4), (2, 3), (3, 2), (3, 4), (3, 3), (3, 7), (3, 5);
 
-select nome, nomeProduto from produtos
+select nomeProduto as Produto, nomeCategoria as Categoria from produtos
 inner join categorias on categorias.id_categoria = produtos.fk_categoria
 inner join carrinho on idproduto = produtos.idprodutos where idusuario = 3
